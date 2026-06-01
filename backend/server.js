@@ -18,7 +18,13 @@ app.use(rateLimit({
     max: 100
 }));
 
-app.use(cors());
+app.use(
+    cors({
+        origin: [
+            "https://designme-web.vercel.app/"
+        ]
+    })
+);
 
 app.use(express.json());
 
