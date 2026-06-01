@@ -14,7 +14,7 @@ window.location.hostname ===
 
 ? "http://localhost:3000/api"
 
-: "https://tu-api.onrender.com/api";
+: "https://designme-web.onrender.com";
 
 async function cargarServicios(){
 
