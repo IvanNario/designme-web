@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "titulo": "Landing Page",
+    "descripcion": "Sitio web profesional",
+    "precio": 3500
+  },
+  {
+    "id": 2,
+    "titulo": "Sitio Corporativo",
+    "descripcion": "Empresa o negocio",
+    "precio": 7000
+  }
+]
