@@ -30,20 +30,16 @@ async(req,res)=>{
 
 const deleteService =
 async(req,res)=>{
+
     await Service.findByIdAndDelete(
         req.params.id
     );
+
     res.json({
         message:"Servicio eliminado"
     });
-};
 
-const services =
-await Service.find({
-    activo:true
-});
-const services =
-await Service.find();
+};
 
 module.exports = {
     getServices,
