@@ -22,19 +22,3 @@ new CloudinaryStorage({
 
 module.exports =
 multer({ storage });
-
-router.post(
-    "/",
-    protect,
-    upload.single("imagen"),
-    (req,res)=>{
-
-        res.json({
-
-            imageUrl:
-            req.file.path
-
-        });
-
-    }
-);

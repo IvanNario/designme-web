@@ -8,23 +8,19 @@ const upload =
 require("../config/multer");
 
 router.post(
-
     "/",
-
     upload.single("imagen"),
-
     (req,res)=>{
 
         res.json({
 
             imageUrl:
-
-            `http://localhost:3000/uploads/${req.file.filename}`
+            req.file.path
 
         });
 
     }
-
 );
 
-module.exports = router;
+module.exports =
+router;
