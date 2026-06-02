@@ -21,7 +21,7 @@ app.use(rateLimit({
 app.use(
     cors({
         origin: [
-            "https://designme-web.vercel.app/"
+            "https://designme-web.vercel.app"
         ]
     })
 );
