@@ -1,10 +1,14 @@
 const API_URL =
-"http://localhost:3000/api";
+
+window.location.hostname ===
+"localhost"
+
+? "http://localhost:3000/api"
+
+: "https://designme-web.onrender.com/api";
 
 document
-.getElementById(
-"loginForm"
-)
+.getElementById("loginForm")
 .addEventListener(
 "submit",
 async(e)=>{
@@ -12,52 +16,63 @@ async(e)=>{
     e.preventDefault();
 
     const email =
-    document.getElementById(
-        "email"
-    ).value;
+    document.getElementById("email").value;
 
     const password =
-    document.getElementById(
-        "password"
-    ).value;
+    document.getElementById("password").value;
 
-    const response =
-    await fetch(
+    try{
 
-        `${API_URL}/auth/login`,
+        const response =
+        await fetch(
 
-        {
+            `${API_URL}/auth/login`,
 
-            method:"POST",
+            {
+                method:"POST",
 
-            headers:{
-                "Content-Type":
-                "application/json"
-            },
+                headers:{
+                    "Content-Type":
+                    "application/json"
+                },
 
-            body:JSON.stringify({
+                body:JSON.stringify({
+                    email,
+                    password
+                })
+            }
 
-                email,
-                password
+        );
 
-            })
+        const data =
+        await response.json();
 
+        if(!response.ok){
+
+            alert(
+                data.message ||
+                "Credenciales inválidas"
+            );
+
+            return;
         }
 
-    );
+        localStorage.setItem(
+            "token",
+            data.token
+        );
 
-    const data =
-    await response.json();
+        window.location.href =
+        "dashboard.html";
 
-    localStorage.setItem(
+    }catch(error){
 
-        "token",
+        console.error(error);
 
-        data.token
+        alert(
+            "Error al conectar con el servidor"
+        );
 
-    );
-
-    window.location.href =
-    "dashboard.html";
+    }
 
 });
