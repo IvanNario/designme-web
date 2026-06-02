@@ -8,7 +8,9 @@ async function loadServices(){
     const response =
     await fetch(
 
-        `${API_URL}/services`
+        fetch(`${API_URL}/services`),
+        fetch(`${API_URL}/quotes`),
+        fetch(`${API_URL}/contacts`)
 
     );
 
